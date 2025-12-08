@@ -30,4 +30,19 @@ public class PersonRepositoryTest {
 
        assertThat(saved.getId()).isNotNull();
     }
+
+    @Test
+    public void can_find_by_lastname_schmidt() {
+        var person = Person.builder()
+                .firstName("firstName")
+                .lastName("Schmidt")
+                .dateOfBirth(new Date())
+                .build();
+
+        personRepository.saveAndFlush(person);
+
+        var schmidts = personRepository.findAllByLastNameSchmidt();
+
+        assertThat(schmidts).isNotEmpty();
+    }
 }
