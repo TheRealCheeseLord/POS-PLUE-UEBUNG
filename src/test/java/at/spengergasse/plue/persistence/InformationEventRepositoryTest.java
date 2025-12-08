@@ -70,4 +70,28 @@ public class InformationEventRepositoryTest {
                 )
         );
     }
+
+    @Test
+    public void can_find_all_by_room_level() {
+        var informationEvent = InformationEvent.builder()
+                .eventType(InformationEventType.GUIDED_TOUR)
+                .name("Test Information Event")
+                .description("Test Information Event Description")
+                .room(Room.builder()
+                        .building("Test Building")
+                        .level("Test Level")
+                        .roomNo("Test RoomNo")
+                        .description("Test Room Description")
+                        .numberOfDesks(69)
+                        .numberOfSeats(420)
+                        .build()
+                )
+                .build();
+
+        informationEventRepository.saveAndFlush(informationEvent);
+
+        var found = informationEventRepository.findAllByRoom_Level("Test Level");
+
+        assertThat(found).isNotEmpty();
+    }
 }

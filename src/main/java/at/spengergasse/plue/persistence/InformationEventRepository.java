@@ -11,4 +11,6 @@ public interface InformationEventRepository extends JpaRepository<InformationEve
 
     @Query("SELECT new at.spengergasse.plue.dtos.InformationEventSummary(ie) FROM InformationEvent ie")
     List<InformationEventSummary> findAllSummary();
+
+    List<InformationEvent> findAllByRoom_Level(String roomLevel);
 }
