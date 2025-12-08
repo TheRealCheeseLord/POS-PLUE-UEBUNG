@@ -43,6 +43,5 @@ public class InformationEvent {
     @Builder.Default
     private Set<Student> students = new HashSet<>();
 
-    @Embeddable
     public record InformationEventId(@NotNull @GeneratedValue Long id) {}
 }
