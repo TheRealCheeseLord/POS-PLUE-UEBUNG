@@ -30,11 +30,11 @@ public class EventTimeSlot {
     @Column(nullable = false, name = "`to`")
     private Time to;
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "event_time_slot_id")
+    @JoinColumn(name = "event_time_slot_id", foreignKey = @ForeignKey(name = "FK__student__2__event_time_slot"))
     @Builder.Default
     private Set<Student> students = new HashSet<>();
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "event_time_slot_id")
+    @JoinColumn(name = "event_time_slot_id", foreignKey = @ForeignKey(name = "FK__teacher__2__event_time_slot"))
     @Builder.Default
     private Set<Teacher> teachers = new HashSet<>();
 

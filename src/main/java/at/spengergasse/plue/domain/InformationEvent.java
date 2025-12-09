@@ -33,13 +33,16 @@ public class InformationEvent {
             cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH},
             orphanRemoval = true
     )
+    @JoinColumn(name = "information_event_id", foreignKey = @ForeignKey(name = "FK__slot__2__information_event"))
     @Builder.Default
     private Set<EventTimeSlot> slots = new HashSet<>();
     // ka ob das unten stimmt; domain model ist von einem idioten gemacht
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "information_event_id", foreignKey = @ForeignKey(name = "FK__teacher__2__information_event"))
     @Builder.Default
     private Set<Teacher> teachers = new HashSet<>();
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "information_event_id", foreignKey = @ForeignKey(name = "FK__student__2__information_event"))
     @Builder.Default
     private Set<Student> students = new HashSet<>();
 
