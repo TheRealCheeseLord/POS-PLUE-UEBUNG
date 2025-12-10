@@ -30,7 +30,7 @@ public class InformationEvent {
     })
     private Room room;
     @OneToMany(
-            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH},
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE},
             orphanRemoval = true
     )
     @JoinColumn(name = "information_event_id", foreignKey = @ForeignKey(name = "FK__slot__2__information_event"))

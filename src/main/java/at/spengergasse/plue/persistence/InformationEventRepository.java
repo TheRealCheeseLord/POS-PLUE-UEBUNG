@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface InformationEventRepository extends JpaRepository<InformationEvent, InformationEvent.InformationEventId> {
 
-    @Query("SELECT new at.spengergasse.plue.dtos.InformationEventSummary(ie) FROM InformationEvent ie")
+    @Query("SELECT new at.spengergasse.plue.dtos.InformationEventSummary(ie.eventType, ie.name, concat(ie.room.building, '.', ie.room.level, '.', ie.room.roomNo), ie.room.numberOfSeats ) FROM InformationEvent ie")
     List<InformationEventSummary> findAllSummary();
 
     List<InformationEvent> findAllByRoom_Level(String roomLevel);
