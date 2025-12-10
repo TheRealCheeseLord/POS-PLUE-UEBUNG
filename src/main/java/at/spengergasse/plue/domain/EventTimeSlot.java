@@ -20,6 +20,8 @@ import java.util.Set;
 public class EventTimeSlot {
     @EmbeddedId
     private EventTimeSlotId id;
+    @Version
+    private Integer version;
     private String slotTitle;
     private String slotDescription;
     // "day", "from" & "to" are all reserved keywords; therefor name change

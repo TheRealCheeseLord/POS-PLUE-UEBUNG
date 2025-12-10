@@ -20,6 +20,8 @@ import lombok.experimental.SuperBuilder;
 public class PersonRole {
     @EmbeddedId
     private PersonRoleId id;
+    @Version
+    private Integer version;
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, optional = false)
     @JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "FK__person_role__2__person"))
     private Person person;

@@ -19,6 +19,8 @@ import java.util.Set;
 public class InformationEvent {
     @EmbeddedId
     private InformationEventId id;
+    @Version
+    private Integer version;
     @Convert(converter = InformationEventTypeConverter.class)
     private InformationEventType eventType;
     @Column(nullable = false)

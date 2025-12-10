@@ -17,6 +17,8 @@ import java.util.Date;
 public class Person {
     @EmbeddedId
     private PersonId id;
+    @Version
+    private Integer version;
     @NotNull
     @Column(nullable = false)
     private String firstName;
